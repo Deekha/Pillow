@@ -1,0 +1,30 @@
+from PIL import Image, ImageDraw
+
+# Création d'une nouvelle image de taille 800x600 pixels
+width, height = 800, 600
+image = Image.new('RGB', (width, height), (255, 255, 255))
+draw = ImageDraw.Draw(image)
+
+# Dessin du personnage
+# Tête
+draw.ellipse((350, 50, 450, 150), fill=(255, 220, 177))
+
+# Corps
+draw.rectangle((350, 150, 450, 400), fill=(177, 220, 255))
+
+# Bras gauche
+draw.rectangle((250, 150, 350, 400), fill=(177, 220, 255))
+
+# Bras droit
+draw.rectangle((450, 150, 550, 400), fill=(177, 220, 255))
+
+# Jambes
+draw.rectangle((350, 400, 400, 600), fill=(177, 220, 255))
+draw.rectangle((400, 400, 450, 600), fill=(177, 220, 255))
+
+# Dessin du costume
+draw.polygon([(350, 150), (400, 150), (400, 250)], fill=(0, 0, 0))
+draw.polygon([(450, 150), (400, 150), (400, 250)], fill=(0, 0, 0))
+
+# Enregistrement de l'image
+image.save('planche_manga.png')
